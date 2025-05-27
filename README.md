@@ -10,19 +10,42 @@ Alzheimer’s disease (AD) is a neurological disorder that results in diminished
 ### DATA 
 
 The dataset used for this project consists of images from MRI brain scans. The MRI technique is non-invasive and can produce detailed images of soft tissue such as brain tissue [1]. Changes in brain structure such as cerebral atrophy (shrinking of the brain), and abnormal protein build up are characteristics of AD [2]. The data is comprised of four classes, Non-Demented, Mild Demented, Moderate Demented, and Very Mild Demented.
-
+---
 - The data used for this work is available at Kaggle, https://www.kaggle.com/datasets/ninadaithal/imagesoasis
   - Acknowledgments: “Data were provided 1-12 by OASIS-1: Cross-Sectional: Principal Investigators: D. Marcus, R, Buckner, J, Csernansky J. Morris; P50 AG05681, P01 AG03991, P01 AG026276, R01 AG021910, P20 MH071616, U24 RR021382”
   - Citation: OASIS-1: Cross-Sectional: https://doi.org/10.1162/jocn.2007.19.9.1498
+ 
+### Languge: Python
+  - [TensorFlow](https://www.tensorflow.org/)
+  - [scikit-learn](https://scikit-learn.org/stable/)
+  - [Matplotlib](https://matplotlib.org/)
 
-### MODELS 
+### Hardware: 
+  - Dual NVIDIA T4 GPUs T4 x2 accelerator (ran on Kaggle's platform)
 
-CNNs will be used to detect AD in brain tissue by analyzing MRI images. CNNs are an appropriate choice for this task for several reasons. For one they use convolutional layers with local receptive fields to recognize patterns such as edges, textures and shape. Given the changes in brain structure associated with AD [2], detecting patterns such as these could be helpful in diagnosing the disease. CNNs process images through multiple layers, they learn to extract increasingly complex features. Early layers detect simple structures, while deeper layers can capture more abstract patterns, such as those associated with cerebral atrophy and protein build-up.
+### CNN Architecture
+
+CNNs are an appropriate choice for this task for several reasons. For one they use convolutional layers with local receptive fields to recognize patterns such as edges, textures and shape. Given the changes in brain structure associated with AD [2], detecting patterns such as these could be helpful in diagnosing the disease. CNNs process images through multiple layers, they learn to extract increasingly complex features. Early layers detect simple structures, while deeper layers can capture more abstract patterns, such as those associated with cerebral atrophy and protein build-up.
+---
+- **Convolutional Layers:** Four convolutional blocks with increasing depth: 64 → 128 → 256 → 512 filters.
+
+
+
+
 
 ## Results
 <img width="1041" alt="first_model_results" src="https://github.com/user-attachments/assets/628c45f9-1916-4399-a4e9-d5d4d56cd62e" />
 
-REFERECNCES:
+## To Do
+- [ ] Develop a strategy to handel data imbalance. 
+Category: Non Demented, Files found: 67222
+Category: Very mild Dementia, Files found: 13725
+Category: Moderate Dementia, Files found: 488
+Category: Mild Dementia, Files found: 5002
+Total images found: 86437
+
+
+## REFERECNCES:
 
 [1] Ashby, K., Adams, B. N., & Shetty, M. (2022, November 14). Appropriate magnetic resonance imaging ordering. StatPearls - NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK565857/ [2] Coupé, P., Manjón, J. V., Lanuza, E., & Catheline, G. (2019). Lifespan changes of the human brain in Alzheimer’s disease. Scientific Reports, 9(1). https://doi.org/10.1038/s41598-019-39809-8 [3] “How Is Alzheimer’s Disease Diagnosed?”. National Institute on Aging. Dec.08, 2022. https://www.nia.nih.gov/health/alzheimers-symptoms-and-diagnosis/how-alzheimers-disease-diagnosed [4] Rasmussen, J., & Langerman, H. (2019). Alzheimer’s Disease – Why We Need Early Diagnosis. Degenerative Neurological and Neuromuscular Disease, Volume 9, 123–130. https://doi.org/10.2147/dnnd.s228939 [5] “What Is Alzheimer’s Disease?”. National Institute on Aging, Jul. 08, 2021. https://www.nia.nih.gov/health/alzheimers-and-dementia/what-alzheimers-disease
 
