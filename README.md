@@ -10,10 +10,15 @@ Alzheimer’s disease (AD) is a neurological disorder that results in diminished
 ### DATA 
 
 The dataset used for this project consists of images from MRI brain scans. The MRI technique is non-invasive and can produce detailed images of soft tissue such as brain tissue [1]. Changes in brain structure such as cerebral atrophy (shrinking of the brain), and abnormal protein build up are characteristics of AD [2]. The data is comprised of four classes, Non-Demented, Mild Demented, Moderate Demented, and Very Mild Demented.
----
+
 - The data used for this work is available at Kaggle, https://www.kaggle.com/datasets/ninadaithal/imagesoasis
   - Acknowledgments: “Data were provided 1-12 by OASIS-1: Cross-Sectional: Principal Investigators: D. Marcus, R, Buckner, J, Csernansky J. Morris; P50 AG05681, P01 AG03991, P01 AG026276, R01 AG021910, P20 MH071616, U24 RR021382”
   - Citation: OASIS-1: Cross-Sectional: https://doi.org/10.1162/jocn.2007.19.9.1498
+- **The data is not balanced**, total images: 86437 with
+  - Non Demented images: 67222
+  - Very mild Dementia images: 13725
+  - Moderate Dementia images: 488
+  - Mild Dementia images: 5002
  
 ### Languge: Python
   - [TensorFlow](https://www.tensorflow.org/)
@@ -26,24 +31,47 @@ The dataset used for this project consists of images from MRI brain scans. The M
 ### CNN Architecture
 
 CNNs are an appropriate choice for this task for several reasons. For one they use convolutional layers with local receptive fields to recognize patterns such as edges, textures and shape. Given the changes in brain structure associated with AD [2], detecting patterns such as these could be helpful in diagnosing the disease. CNNs process images through multiple layers, they learn to extract increasingly complex features. Early layers detect simple structures, while deeper layers can capture more abstract patterns, such as those associated with cerebral atrophy and protein build-up.
----
+
 - **Convolutional Layers:** Four convolutional blocks with increasing depth: 64 → 128 → 256 → 512 filters.
 
+- **Data Augmentation:**
+  - Added before the first convolutional layer to generate diverse training samples.
+  - Randomly rotates, flips, zooms or adjusts the contrast of some images.
 
+- **Regularization and Normalization:**
+  - Dropout after each block (progressively increasing)
+  - BatchNormalization throughout the network
+  - L2 kernel regularization to reduce overfitting
+  
+- **Pooling:**
+  - MaxPooling2D after each convolutional block to reduce spatial dimensions
+  - GlobalAveragePooling2D before fully connected layer
+  
+- **Fully Connected Layer:**
+  - Dense layer with 256 units, followed by Dropout and BatchNormalization
+  - Final output layer: 4 unit with sofmax activation for multiclass (4) classification
 
+### Training Strategy
 
+- **Optimizer:** Adam with a learning rate initialized at 0.0002
+
+- **Loss Function:** categorical_crossentropy
+
+- **Learning Rate Scheduler:** A scheduler was used ([ReduceLROnPlateau]( https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.ReduceLROnPlateau.html)) to reduce the learning rate during training to help with model stability.
 
 ## Results
-<img width="1041" alt="first_model_results" src="https://github.com/user-attachments/assets/628c45f9-1916-4399-a4e9-d5d4d56cd62e" />
+The two minority classes, Moderate Dementia and Very mild Dementia are not being identified.
+<img width="754" alt="ThirdModelPerformance" src="https://github.com/user-attachments/assets/02c5452c-bf4c-4263-ae79-bbcf549a0a63" />
+<img width="637" alt="ThirdModelConfusion" src="https://github.com/user-attachments/assets/05e0bc9f-afd6-4480-8528-1d3f4252238f" />
+
 
 ## To Do
-- [ ] Develop a strategy to handel data imbalance. 
-Category: Non Demented, Files found: 67222
-Category: Very mild Dementia, Files found: 13725
-Category: Moderate Dementia, Files found: 488
-Category: Mild Dementia, Files found: 5002
-Total images found: 86437
-
+- [ ] Develop a strategy to handle data imbalance.
+  - [ ] Class weighting:
+    Two strategies were attempted, one setting class_weight='balanced', and the other using a customized class weight calculation. Both approaches resulted in all images being predicted as Non Demented.
+  - [ ] Oversampling minority classes by duplicating or upsampling batches.
+  - [ ] Target data augmentation to minority classes.
+  - [ ] Build a GAN to generate synthetic minority class images **Ambitious**
 
 ## REFERECNCES:
 
