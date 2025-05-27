@@ -67,7 +67,7 @@ The two minority classes, Moderate Dementia and Very mild Dementia are not being
 
 ## To Do
 - [ ] Develop a strategy to handle data imbalance.
-  - [ ] Class weighting:
+  - [x] Class weighting:
     Two strategies were attempted, one setting class_weight='balanced', and the other using a customized class weight calculation. Both approaches resulted in all images being predicted as Non Demented.
   - [ ] Oversampling minority classes by duplicating or upsampling batches.
   - [ ] Target data augmentation to minority classes.
