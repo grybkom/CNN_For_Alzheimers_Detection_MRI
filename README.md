@@ -68,9 +68,8 @@ The two minority classes, Moderate Dementia and Very mild Dementia are not being
 ## To Do
 - [ ] Develop a strategy to handle data imbalance.
   - [x] Class weighting:
-    Two strategies were attempted, one setting class_weight='balanced', and the other using a customized class weight calculation. Both approaches resulted in all images being predicted as Non Demented. Notebook version: cnn_alzheimer_detection_mri_3models20250518
-  - [ ] Oversampling minority classes by duplicating or upsampling batches.
-  - [ ] Target data augmentation to minority classes.
+    Two strategies were attempted, one setting class_weight='balanced', and the other using a customized class weight calculation. Both approaches resulted in all images being predicted as Non Demented. Notebook version: cnn-alzheimer-mri-detection20250526
+  - [ ] Creating a custom oversampling pipeline with augmentation.
   - [ ] Using a pretrained architecture such as [MobileNetV2](https://keras.io/api/applications/mobilenet/)
   - [ ] Build a GAN to generate synthetic minority class images **Ambitious**
 
