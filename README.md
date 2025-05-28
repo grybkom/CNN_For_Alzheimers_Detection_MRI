@@ -70,9 +70,7 @@ The two minority classes, Moderate Dementia and Very mild Dementia are not being
   - [x] Class weighting:
     Two strategies were attempted, one setting class_weight='balanced', and the other using a customized class weight calculation. Both approaches resulted in all images being predicted as Non Demented. Notebook version: cnn-alzheimer-mri-detection20250526
   - [ ] Creating a custom oversampling pipeline with augmentation.
-  - [ ] Using a pretrained architecture such as [MobileNetV2](https://keras.io/api/applications/mobilenet/)
-  
-        - **Review** Foster, L. (2023, April 18). Identifying Alzheimer’s Disease with Deep Learning: A Transfer Learning Approach. Medium. https://medium.com/@lfoster49203/identifying-alzheimers-disease-with-deep-learning-a-transfer-learning-approach-620abf802631
+  - [ ] Using a pretrained architecture such as [MobileNetV2](https://keras.io/api/applications/mobilenet/) **Review** Foster, L. (2023, April 18). Identifying Alzheimer’s Disease with Deep Learning: A Transfer Learning Approach. Medium. https://medium.com/@lfoster49203/identifying-alzheimers-disease-with-deep-learning-a-transfer-learning-approach-620abf802631       
   - [ ] **Ambitious:** Build a GAN to generate synthetic minority class images 
 
 ## REFERECNCES:
