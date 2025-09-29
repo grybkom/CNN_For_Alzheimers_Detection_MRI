@@ -34,9 +34,13 @@ CNNs are an appropriate choice for this task for several reasons. For one they u
 
 - **Convolutional Layers:** Four convolutional blocks with increasing depth: 64 → 128 → 256 → 512 filters.
 
-- **Data Augmentation:**
-  - Only applied to minority classes for oversampling.
+- **Data Oversampling Downsampling and Augmentation:**
+  - Applied Augmentaion only to minority classes for oversampling.
   - Randomly rotates, flips, zooms or adjusts the contrast of some images.
+    - Upsampled Mild Dementia from 5002 to 6000 images
+    - Upsampled Moderate Dementia from 488 to 3000 images
+    - Upsampled Very mild Dementia from 13725 to 14000 images
+  - Downsampled 'Non Demented' from 67222 to 20000 images.
 
 - **Regularization and Normalization:**
   - BatchNormalization throughout the network
@@ -59,9 +63,6 @@ CNNs are an appropriate choice for this task for several reasons. For one they u
 - **Learning Rate Scheduler:** A scheduler was used ([ReduceLROnPlateau]( https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.ReduceLROnPlateau.html)) to reduce the learning rate during training to help with model stability.
 
 ## Results
-The two minority classes, Moderate Dementia and Very mild Dementia are not being identified.
-<img width="754" alt="ThirdModelPerformance" src="https://github.com/user-attachments/assets/02c5452c-bf4c-4263-ae79-bbcf549a0a63" />
-<img width="637" alt="ThirdModelConfusion" src="https://github.com/user-attachments/assets/05e0bc9f-afd6-4480-8528-1d3f4252238f" />
 
 **Improved Classification with Oversampleing of Minority Class and Downsampling of Majority Calss**
 <img width="1494" height="494" alt="alz_performance_20250927" src="https://github.com/user-attachments/assets/09f40531-1323-4dfe-b941-a681b602da10" />
