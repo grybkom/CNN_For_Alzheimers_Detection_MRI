@@ -66,7 +66,8 @@ The two minority classes, Moderate Dementia and Very mild Dementia are not being
 
 **Improved Classification with Oversampleing of Minority Class and Downsampling of Majority Calss**
 <img width="1494" height="494" alt="alz_performance_20250927" src="https://github.com/user-attachments/assets/09f40531-1323-4dfe-b941-a681b602da10" />
-<img width="1494" height="494" alt="alz_performance_20250927" src="https://github.com/user-attachments/assets/24ce65d2-a6eb-49e9-9ad0-01ea5dbfc0c5" />
+<img width="801" height="793" alt="alz_confusion_matrix_20250927" src="https://github.com/user-attachments/assets/27ba1519-f104-4a9a-9172-b13b2f026300" />
+
 
 ## To Do
 - [ ] Develop a strategy to handle data imbalance.
