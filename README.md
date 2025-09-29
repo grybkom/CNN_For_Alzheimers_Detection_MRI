@@ -35,11 +35,10 @@ CNNs are an appropriate choice for this task for several reasons. For one they u
 - **Convolutional Layers:** Four convolutional blocks with increasing depth: 64 → 128 → 256 → 512 filters.
 
 - **Data Augmentation:**
-  - Added before the first convolutional layer to generate diverse training samples.
+  - Only applied to minority classes for oversampling.
   - Randomly rotates, flips, zooms or adjusts the contrast of some images.
 
 - **Regularization and Normalization:**
-  - Dropout after each block (progressively increasing)
   - BatchNormalization throughout the network
   - L2 kernel regularization to reduce overfitting
   
