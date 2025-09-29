@@ -64,12 +64,18 @@ The two minority classes, Moderate Dementia and Very mild Dementia are not being
 <img width="754" alt="ThirdModelPerformance" src="https://github.com/user-attachments/assets/02c5452c-bf4c-4263-ae79-bbcf549a0a63" />
 <img width="637" alt="ThirdModelConfusion" src="https://github.com/user-attachments/assets/05e0bc9f-afd6-4480-8528-1d3f4252238f" />
 
+**Improved Classification with Oversampleing of Minority Class and Downsampling of Majority Calss**
+<img width="1494" height="494" alt="alz_performance_20250927" src="https://github.com/user-attachments/assets/09f40531-1323-4dfe-b941-a681b602da10" />
+<img width="1494" height="494" alt="alz_performance_20250927" src="https://github.com/user-attachments/assets/24ce65d2-a6eb-49e9-9ad0-01ea5dbfc0c5" />
 
 ## To Do
 - [ ] Develop a strategy to handle data imbalance.
   - [x] Class weighting:
     Two strategies were attempted, one setting class_weight='balanced', and the other using a customized class weight calculation. Both approaches resulted in all images being predicted as Non Demented. Notebook version: cnn-alzheimer-mri-detection20250526
-  - [ ] Creating a custom oversampling pipeline with augmentation.
+  - [X] Creating a custom oversampling pipeline with augmentation.
+    - Notebook cnn_alzheimer_detection_mri_20250927.ipynb 
+    - Upsampled minority classes, Moderate from 488 to 3,000, Mild from 5,002 to 6,000 and Very Mild from 13,725 to 14,000
+    - Downsmapled majority class, Non Demented from 67,222 to 20,000
   - [ ] Using a pretrained architecture such as [MobileNetV2](https://keras.io/api/applications/mobilenet/) , **Review** Foster, L. (2023, April 18). Identifying Alzheimer’s Disease with Deep Learning: A Transfer Learning Approach. Medium. https://medium.com/@lfoster49203/identifying-alzheimers-disease-with-deep-learning-a-transfer-learning-approach-620abf802631       
   - [ ] **Ambitious:** Build a GAN to generate synthetic minority class images 
 
